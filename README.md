@@ -2,13 +2,13 @@ This application is a soloution for [CS 378: Assignment 2 - Dockers and Containe
 
 # How It Works
 This application create 3 containers - server, client, and mongodb - that simulate a server-client newtork with Docker. 
-It create images for server and client base on python:alpine3.18, and for database base on mongo:4.2.24
+It create images for server and client base on *python:alpine3.18*, and for database base on *mongo:4.2.24*.
 ## Server
 Server container has a server.py. It use socket library to create a low-level server through Docker network. It will do this tasks respectively:
 - Generate random text with 1024 charecters to create a file of size 1 KB.
 - It creates a hash with SHA3_256 to use in validation and checksum function
-- It connects to MongoDB database in order to store filename and its hash into collection
-- It use two method insert and retrieve based on CRUD concept to creat and read data from database
+- It connects to MongoDB database in order to store filename and its hash into collection.
+- It use two method insert and retrieve based on CRUD concept to creat and read data from database.
 - With creation of a socket object with predefined HOST and PORT starts to listen on network to makes connection with possible client.
 - After the connection was accepted it will send the file to client and wait for response from client, which is the file's hash to check the validation.
 - Then it responses to clinet that if the file is valid or not.

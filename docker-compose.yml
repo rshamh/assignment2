@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  server:
+    build: ./server
+    volumes:
+      - servervol:/app/serverdata
+    tty: True
+    
+  client:
+    build: ./client
+    command: sh
+    volumes:
+      - clientvol:/app/clientdata
+    tty: True
+
+  mongodb:
+    image: mongo:4.2.24
+    ports:
+      - 27017:27017
+    volumes:
+      - dbdata:/data/db
+
+volumes:
+  servervol:
+  clientvol:
+  dbdata:

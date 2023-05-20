@@ -1,0 +1,5 @@
+FROM mongo:4.2.24
+
+WORKDIR /data/db
+
+EXPOSE 27017
